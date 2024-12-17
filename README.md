@@ -115,7 +115,7 @@ BERT uses the Transformer architecture to generate contextualized embeddings. Ea
 | BERT     | Contextual embeddings; Transformer-based.    | Computationally intensive; overkill.     | Advanced NLP tasks, contextual analysis.|
 
 
-## Comparison Between Bow,Glove and Word2vec:
+## Comparison Between Bow,Glove and Word2vec: IMDB review dataset
 ## BOW
 ![image](https://github.com/user-attachments/assets/83522595-0acc-4dc0-9bee-2345644eb811)
 ![image](https://github.com/user-attachments/assets/f9b16b1a-5b01-4273-93da-0649c9a364fc)
