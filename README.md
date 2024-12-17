@@ -1,3 +1,112 @@
+# **Documentation for IMDB Review Classification**
+
+## **1. Objective**
+The primary objective of this project is to classify movie reviews from the IMDB dataset as either positive or negative using Natural Language Processing (NLP) techniques. The focus is on implementing and comparing different text vectorization methods—Bag of Words (BoW), GloVe (Global Vectors for Word Representation), and Word2Vec—along with their performance in terms of prediction outputs and evaluation metrics.
+
+---
+
+## **2. Dataset**
+The dataset used for this project consists of labeled IMDB movie reviews.
+
+- **Features**: Raw text of reviews  
+- **Target**: Binary labels (Positive = 1, Negative = 0)
+
+---
+
+## **3. Methodology**
+
+### **Data Preprocessing**
+#### **Text Cleaning**:
+- Removal of punctuation, numbers, and special characters.
+- Conversion of text to lowercase.
+- Tokenization and removal of stopwords.
+- Stemming and Lemmatization (where applicable).
+
+#### **Splitting**:
+- Train-test split of the dataset to evaluate the model performance.
+
+### **Feature Extraction Methods**
+Three feature extraction methods were implemented to convert text into numerical representations for classification:
+
+1. **Bag of Words (BoW)**
+   - Represents text as a sparse matrix of word frequencies or binary values.
+   - Captures term occurrence but ignores word semantics and context.
+
+2. **GloVe**
+   - Pre-trained word embeddings that capture semantic meaning.
+   - Embedding vectors are trained on a large corpus (e.g., Wikipedia) and used to represent words in a dense vector space.
+
+3. **Word2Vec**
+   - Embeddings generated using Skip-Gram or CBOW (Continuous Bag of Words).
+   - Captures semantic relationships between words through unsupervised learning.
+
+### **Classification**
+- A classification model (e.g., Logistic Regression, Random Forest, or any other specified) was trained using the vectorized features from each method.
+- Predictions (`y_pred`) were compared across methods.
+
+### **Evaluation Metrics**
+- Accuracy
+- Precision
+- Recall
+- F1-score
+
+---
+
+## **4. Results and Comparison**
+
+### **1. Bag of Words (BoW)**
+- **Matrix Size**: High-dimensional sparse matrix, resulting in large memory usage.
+- **Output**: Performs well for simpler tasks but lacks semantic understanding.
+- **Prediction (`y_pred`)**: Captures word frequency but ignores context, leading to potential misclassifications.
+![image](https://github.com/user-attachments/assets/83522595-0acc-4dc0-9bee-2345644eb811)
+![image](https://github.com/user-attachments/assets/f9b16b1a-5b01-4273-93da-0649c9a364fc)
+
+### **2. GloVe**
+- **Matrix Size**: Dense, lower-dimensional vectors compared to BoW.
+- **Output**: Captures semantic relationships effectively.
+- **Prediction (`y_pred`)**: Demonstrates improved performance in sentiment detection, especially for context-dependent words.
+![image](https://github.com/user-attachments/assets/0963f590-3424-469e-bdb6-23f3da066d5f)
+![image](https://github.com/user-attachments/assets/f760f4e4-889b-4c73-a302-c90bd3fb51fc)
+
+### **3. Word2Vec**
+- **Matrix Size**: Dense vectors, customizable for task-specific training.
+- **Output**: Captures semantic and syntactic information in text.
+- **Prediction (`y_pred`)**: Slightly outperforms GloVe in certain cases due to its training methodology, particularly in context-heavy reviews.
+![image](https://github.com/user-attachments/assets/4614c9fc-b445-4650-92eb-5cbbf8e998c4)
+![image](https://github.com/user-attachments/assets/cc9ec8d5-0eda-44ee-bf7a-eb2a981e56a7)
+
+
+## **5. Comparison of `y_pred` Values**
+
+| **Method**   | **Key Strength**                      | **Limitation**                            | **Accuracy** |
+|--------------|---------------------------------------|-------------------------------------------|--------------|
+| **BoW**      | Simplicity and fast computation       | Ignores word context and semantics        | 0.85         |
+| **GloVe**    | Pre-trained embeddings, semantic info | Limited to fixed embeddings               | 0.73         |
+| **Word2Vec** | Task-specific embeddings, contextual  | Computationally expensive for training    | 0.81         |
+
+---
+
+## **6. Conclusion**
+
+### **Summary of Findings**:
+- **BoW** is suitable for straightforward classification tasks but lacks the sophistication required for complex datasets.
+- **GloVe** and **Word2Vec** leverage semantic meaning, improving model performance for nuanced reviews.
+
+### **Recommendation**:
+- **GloVe** is a robust option when pre-trained embeddings suffice.
+- **Word2Vec** is better for custom, task-specific embeddings when computational resources allow.
+
+**Final Model**: The best-performing method based on accuracy and evaluation metrics was `<Best Method>`.
+
+---
+
+## **7. Future Work**
+
+- Experiment with advanced models like BERT or GPT-based embeddings for further improvement.
+- Explore hyperparameter tuning to optimize the classification model.
+
+---
+
 # Natural Language Processing (NLP) Techniques
 
 ## 1. Bag of Words (BoW)
@@ -114,19 +223,6 @@ BERT uses the Transformer architecture to generate contextualized embeddings. Ea
 | Word2Vec | Learns dense vectors; context-aware.         | Requires large datasets for training.    | Domain-specific corpora, rare words.    |
 | BERT     | Contextual embeddings; Transformer-based.    | Computationally intensive; overkill.     | Advanced NLP tasks, contextual analysis.|
 
-
-## Comparison Between Bow,Glove and Word2vec: IMDB review dataset
-## BOW
-![image](https://github.com/user-attachments/assets/83522595-0acc-4dc0-9bee-2345644eb811)
-![image](https://github.com/user-attachments/assets/f9b16b1a-5b01-4273-93da-0649c9a364fc)
-
-## Glove
-![image](https://github.com/user-attachments/assets/0963f590-3424-469e-bdb6-23f3da066d5f)
-![image](https://github.com/user-attachments/assets/f760f4e4-889b-4c73-a302-c90bd3fb51fc)
-
-## Word2vec
-![image](https://github.com/user-attachments/assets/4614c9fc-b445-4650-92eb-5cbbf8e998c4)
-![image](https://github.com/user-attachments/assets/cc9ec8d5-0eda-44ee-bf7a-eb2a981e56a7)
 
 
 # Summary Evaluation Metrics
