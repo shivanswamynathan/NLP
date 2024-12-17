@@ -129,6 +129,78 @@ BERT uses the Transformer architecture to generate contextualized embeddings. Ea
 ![image](https://github.com/user-attachments/assets/cc9ec8d5-0eda-44ee-bf7a-eb2a981e56a7)
 
 
+# Summary Evaluation Metrics
+
+## 1. ROUGE Scores
+ROUGE (Recall-Oriented Understudy for Gisting Evaluation) measures how much overlap exists between the generated (candidate) summary and the reference (original/ideal) summary.
+
+### ROUGE Metrics:
+- **ROUGE-1**: Measures the overlap of unigrams (single words) between the candidate summary and the reference text.
+- **ROUGE-2**: Measures the overlap of bigrams (two consecutive words) between the candidate and the reference.
+- **ROUGE-L**: Measures the longest common subsequence (LCS) of words between the candidate and the reference. It evaluates fluency and coherence.
+
+### ROUGE Metrics Explained:
+Each ROUGE metric provides three values:
+- **Precision**: Percentage of words in the candidate summary that are also in the reference.
+- **Recall**: Percentage of words in the reference that appear in the candidate.
+- **F-measure**: Harmonic mean of Precision and Recall, balancing both.
+
+### Your ROUGE Scores:
+#### ROUGE-1:
+- **Precision**: 1.0 (Every unigram in the candidate exists in the reference.)
+- **Recall**: 0.1337 (Only 13.37% of the unigrams in the reference appear in the candidate.)
+- **F-measure**: 0.2358 (Moderate overlap, slightly favoring precision.)
+
+#### ROUGE-2:
+- **Precision**: 0.9079 (Most bigrams in the candidate are in the reference.)
+- **Recall**: 0.12 (Only 12% of reference bigrams appear in the candidate.)
+- **F-measure**: 0.2120 (Similar pattern as ROUGE-1, slightly favoring precision.)
+
+#### ROUGE-L:
+- **Precision**: 0.8831 (Most of the candidate's sequence is found in the reference.)
+- **Recall**: 0.1181 (Only 11.81% of the reference's sequence appears in the candidate.)
+- **F-measure**: 0.2083 (Again, precision is higher than recall.)
+
+### Observations:
+- **High precision** across all ROUGE scores means the candidate summary contains relevant and correct information.
+- **Low recall** indicates the candidate summary is much shorter than the reference, missing some important details.
+
+---
+
+## 2. BLEU Score
+BLEU (Bilingual Evaluation Understudy) measures how close the generated summary is to the reference summary based on n-gram overlap. 
+
+### BLEU Metrics Explained:
+- The BLEU score compares the tokenized reference and candidate summaries.
+- It calculates **precision** for n-grams (default: unigrams and bigrams) while penalizing overly short candidates using a **brevity penalty**.
+
+### BLEU Score Results:
+- BLEU scores range from **0** (no overlap) to **1.0** (perfect match).
+- A **low BLEU score** suggests that the generated summary lacks sufficient overlap with the reference.
+
+---
+
+## Comparison and Insights
+
+### ROUGE vs BLEU:
+- **ROUGE** is recall-oriented, meaning it evaluates how much of the reference's content is covered by the candidate.
+- **BLEU** is precision-oriented, focusing on how accurately the candidate matches the reference.
+
+### Your Results:
+- **ROUGE Precision** (1.0 for ROUGE-1) indicates the candidate summary uses terms found in the reference but doesn't capture all the content (low recall).
+- The **low BLEU score** further suggests that while the candidate summary contains correct phrases, it fails to align strongly with the reference text in n-gram sequence and length.
+
+---
+
+## Practical Analysis
+- If the candidate summary is very short, it can achieve high ROUGE precision but fail in BLEU and ROUGE recall because it omits many details.
+
+### Improvement Tips:
+1. Generate a slightly longer summary to increase recall and BLEU scores.
+2. Use a model trained for more comprehensive summarization, such as fine-tuned **T5** or **PEGASUS** models.
+
+
+
 
 
 
