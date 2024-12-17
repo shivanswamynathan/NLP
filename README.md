@@ -113,3 +113,22 @@ BERT uses the Transformer architecture to generate contextualized embeddings. Ea
 | GloVe    | Pre-trained dense embeddings; semantic focus.| Static embeddings; lacks context.        | General NLP tasks, similarity search.   |
 | Word2Vec | Learns dense vectors; context-aware.         | Requires large datasets for training.    | Domain-specific corpora, rare words.    |
 | BERT     | Contextual embeddings; Transformer-based.    | Computationally intensive; overkill.     | Advanced NLP tasks, contextual analysis.|
+
+
+## Comparison Between Bow,Glove and Word2vec:
+## BOW
+![image](https://github.com/user-attachments/assets/83522595-0acc-4dc0-9bee-2345644eb811)
+![image](https://github.com/user-attachments/assets/f9b16b1a-5b01-4273-93da-0649c9a364fc)
+
+## Glove
+![image](https://github.com/user-attachments/assets/0963f590-3424-469e-bdb6-23f3da066d5f)
+![image](https://github.com/user-attachments/assets/f760f4e4-889b-4c73-a302-c90bd3fb51fc)
+
+## Word2vec
+![image](https://github.com/user-attachments/assets/4614c9fc-b445-4650-92eb-5cbbf8e998c4)
+![image](https://github.com/user-attachments/assets/cc9ec8d5-0eda-44ee-bf7a-eb2a981e56a7)
+
+
+
+
+
