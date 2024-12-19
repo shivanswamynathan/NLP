@@ -34,14 +34,14 @@ Three feature extraction methods were implemented to convert text into numerical
 
 2. **GloVe**
    - Pre-trained word embeddings that capture semantic meaning.
-   - Embedding vectors are trained on a large corpus (e.g., Wikipedia) and used to represent words in a dense vector space.
+   - Embedding vectors are trained on a large corpus and used to represent words in a dense vector space.
 
 3. **Word2Vec**
    - Embeddings generated using Skip-Gram or CBOW (Continuous Bag of Words).
    - Captures semantic relationships between words through unsupervised learning.
 
 ### **Classification**
-- A classification model (e.g., Logistic Regression, Random Forest, or any other specified) was trained using the vectorized features from each method.
+- A classification model (e.g., Logistic Regression, multinomialnb ) was trained using the vectorized features from each method.
 - Predictions (`y_pred`) were compared across methods.
 
 ### **Evaluation Metrics**
